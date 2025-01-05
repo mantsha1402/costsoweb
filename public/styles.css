@@ -8,7 +8,7 @@ body {
 /* Top Bar */
 .top-bar {
     background-color: #005DA7;
-    color: white;
+    color: White;
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -21,10 +21,11 @@ body {
 }
 
 .utility-links a {
-    color: blue;
+    color: #005DA7;
     margin-left: 15px;
     text-decoration: none;
     align-items: center;
+    text-align: center;
 }
 
 .utility-links a:hover {
@@ -91,7 +92,6 @@ body {
     background-color: #005DA7;
     color: white;
     display: flex;
-    overflow-x: auto;
     top: 0;
     z-index: 999;
 }
@@ -109,6 +109,59 @@ body {
     text-decoration: underline;
 }
 
+.menu {
+    list-style: none;
+    display: flex;
+  }
+
+.menu-item {
+    position: relative;
+  }
+  
+  #grocery-link {
+    cursor: pointer;
+    padding: 10px 0;
+  }
+  
+  #grocery-link:hover {
+    text-decoration: underline;
+  }
+  
+  #drop-down {
+    position: absolute;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    width: 200px;
+    display: none; /* Initially hidden */
+  }
+  
+  #drop-down ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #drop-down li {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #drop-down li a {
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    display: block;
+  }
+  
+  #drop-down li a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .menu-item:hover #drop-down {
+    display: block;
+  }
 
 /* Shop button styles */
 .shop-button-container {
