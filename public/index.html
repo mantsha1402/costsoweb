@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costco</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style> 
+        @media (max-width: 768px) {
+    .header-main {
+        flex-wrap: wrap;
+    }
+
+    .search-bar {
+        flex: 80%;
+        margin: 10px 0;
+    }
+
+    .account-links {
+        flex: 100%;
+        text-align: right;
+    }
+
+    .nav-bar {
+        flex-wrap: wrap;
+    }
+
+    .location-info {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Top Section -->
+    <div class="top-bar">
+        <div class="promo">Save on Select Costco Direct Appliances, Delivery in 3–5 Days in Most Areas</div>
+        </div>
+        <div class="utility-links">
+            <a href="#">Costco Next</a>
+            <a href="#">While Supplies Last</a>
+            <a href="#">Online-Only</a>
+            <a href="#">Treasure Hunt</a>
+            <a href="#">What's New</a>
+            <a href="#">Member Favorites</a>
+            <a href="#">Get Email Offers</a>
+            <a href="#">Customer Service</a>
+            <a href="#">US <span>▼</span></a>
+        </div>
+
+    <!-- Logo, Search Bar, and Utility Links -->
+    <div class="header-main">
+        <div class="logo">
+            <img src="https://cdn.bfldr.com/56O3HXZ9/at/wkgcrwxgt5bt39wg63kgmqr/Costco-Logo-Registered.png?auto=webp&format=jpg" alt="Costco Logo">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button type="submit"><i class="search-icon">🔍</i></button>
+        </div>
+        <div class="account-links">
+            <a href="#">Sign In / Register</a>
+            <a href="#">Orders & Returns</a>
+            <div class="cart">
+                <a href="#" class="cart-icon">Cart v <span class="cart-count">0</span></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="nav-bar">
+        <div class="shop-button-container">
+            <button id="shop-button" class="shop-button">&#9776; Shop</button>
+            <div id="shop-menu" class="dropdown-menu" style="display: none;"></div>
+        </div>
+        <a href="#">Grocery</a>
+        <a href="#">Same Day</a>
+        <a href="#">Deals</a>
+        <a href="#">Business Delivery</a>
+        <a href="#">Optical</a>
+        <a href="#">Pharmacy</a>
+        <a href="#">Services</a>
+        <a href="#">Photo</a>
+        <a href="#">Travel</a>
+        <a href="#">Membership</a>
+        <a href="#">Locations</a>
+    </div>
+</div>
+
+    <!-- Warehouse and Delivery Info -->
+    <div class="location-info">
+        <div class="warehouse">
+            <span>My Warehouse</span>
+            <span>Seattle</span>
+            <span>Open until 6:00 PM</span>
+        </div>
+        <div class="delivery">
+            <span>Delivery Location</span>
+            <span>98101</span>
+        </div>
+    </div>
+</body>
+<script> 
+    // Shop menu toggle
+    const shopButton = document.getElementById('shop-button');
+        const shopMenu = document.getElementById('shop-menu');
+
+        shopButton.addEventListener('click', () => {
+            if (shopMenu.style.display === 'none') {
+                shopMenu.style.display = 'block';
+                displayCategories();
+            } else {
+                shopMenu.style.display = 'none';
+            }
+        });
+
+        // Dynamic category handling
+        const categories = {
+            Appliances: {},
+            Baby: {
+                'Baby Care': ['Creams and Lotions', 'Baby Oils', 'Baby Shampoo'],
+                'Baby Safety': ['Monitors', 'Safety Gates'],
+                'Baby Accessories': ['Strollers', 'Car Seats']
+            },
+            Beauty: {
+                'Skin Care': ['Moisturizers', 'Cleansers'],
+                'Makeup': ['Lipsticks', 'Foundations'],
+                'Fragrances': ['Perfumes', 'Deodorants']
+            },
+            Electronics: {
+                'Phones': ['Smartphones', 'Feature Phones'],
+                'Laptops': ['Gaming Laptops', 'Ultrabooks'],
+                'Accessories': ['Chargers', 'Cables']
+            }
+        };
+
+        function displayCategories() {
+            shopMenu.innerHTML = '';
+            const menu = document.createElement('ul');
+            for (const category in categories) {
+                const item = document.createElement('li');
+                item.textContent = category;
+                item.onclick = () => displaySubcategories(category);
+                menu.appendChild(item);
+            }
+            shopMenu.appendChild(menu);
+        }
+
+        function displaySubcategories(category) {
+            shopMenu.innerHTML = '';
+            const menu = document.createElement('ul');
+            const subcategories = categories[category];
+            for (const subcategory in subcategories) {
+                const item = document.createElement('li');
+                item.textContent = subcategory;
+                item.onclick = () => displayItems(category, subcategory);
+                menu.appendChild(item);
+            }
+            const backButton = document.createElement('button');
+            backButton.textContent = 'Back';
+            backButton.onclick = displayCategories;
+            shopMenu.appendChild(backButton);
+            shopMenu.appendChild(menu);
+        }
+
+        function displayItems(category, subcategory) {
+            shopMenu.innerHTML = '';
+            const menu = document.createElement('ul');
+            const items = categories[category][subcategory];
+            items.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                menu.appendChild(listItem);
+            });
+            const backButton = document.createElement('button');
+            backButton.textContent = 'Back';
+            backButton.onclick = () => displaySubcategories(category);
+            shopMenu.appendChild(backButton);
+            shopMenu.appendChild(menu);
+        }
+</script>
+</html>

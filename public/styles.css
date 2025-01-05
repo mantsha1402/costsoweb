@@ -1,0 +1,195 @@
+/* Reset and Font Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #005DA7;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 5px 20px;
+    font-size: 14px;
+}
+
+.promo {
+    font-weight: bold;
+}
+
+.utility-links a {
+    color: blue;
+    margin-left: 15px;
+    text-decoration: none;
+    align-items: center;
+}
+
+.utility-links a:hover {
+    text-decoration: underline;
+}
+
+/* Header Main Section */
+.header-main {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    margin: 0 20px;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+}
+
+.search-bar button {
+    background-color: #005DA7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #004080;
+}
+
+.account-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.account-links a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Menu */
+.nav-bar {
+    background-color: #005DA7;
+    color: white;
+    display: flex;
+    overflow-x: auto;
+    top: 0;
+    z-index: 999;
+}
+
+
+.nav-bar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+
+/* Shop button styles */
+.shop-button-container {
+    margin: 20px;
+}
+
+#shop-button {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#shop-button:hover {
+    background-color: gray;
+    transform: scale(1.05);
+}
+
+.dropdown-menu {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    position: absolute;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 8px;
+    cursor: pointer;
+    color: black;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu ul li:hover {
+    background-color: #eee;
+    
+}
+
+
+/* Location Info */
+.location-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+}
+
+.warehouse span,
+.delivery span {
+    display: block;
+}
+
+.cart{
+    display: flex;
+    align-items: center;
+}
+.cart-icon {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+}
+
+.cart-count {
+    position: absolute;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
