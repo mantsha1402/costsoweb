@@ -126,3 +126,15 @@ app.delete('/cart/:itemId', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+const express = require('express');
+
+app.use(express.static('public')); // Serve static files from 'public' folder
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html'); // Serve your HTML
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
